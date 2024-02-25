@@ -18,5 +18,12 @@ function changeBackground() {
           }
        }
     }
+    if (numSelected == 0) {
+        numSelected = 1 // Avoid division by 0.
+        // Make background white
+        rVal = 255;
+        gVal = 255;
+        bVal = 255;
+    }
     document.body.style.background = "rgb(" + rVal / numSelected + "," + gVal / numSelected + "," + bVal / numSelected + ")";
  }

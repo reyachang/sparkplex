@@ -35,10 +35,8 @@ function changeBackground() {
     }
     console.log(backgroundString)
     if (numSelected == 1) {
-      console.log("option 1");
       document.body.style.background = backgroundString;
     } else {
-      console.log("option 2");
       document.body.style.backgroundImage = "linear-gradient(" + backgroundString + ")";
     }
  }

@@ -1,12 +1,20 @@
 function changeBackground() {
+   
     inputs = document.getElementsByTagName("input");
     numSelected = 0;
     rVal = 0;
     gVal = 0;
     bVal = 0;
+    backgroundString = "";
     for (var i = 0; i < inputs.length; i++) {
        if (inputs[i].type == "checkbox") {
           if (inputs[i].checked) {
+            if (numSelected == 0) {
+               backgroundString += inputs[i].value;
+            } else {
+               backgroundString += "," +  inputs[i].value;
+            }
+
              numSelected++;
              colorValue = inputs[i].value;
              rgb = colorValue.substring(4, colorValue.length - 1)
@@ -25,5 +33,12 @@ function changeBackground() {
         gVal = 255;
         bVal = 255;
     }
-    document.body.style.background = "rgb(" + rVal / numSelected + "," + gVal / numSelected + "," + bVal / numSelected + ")";
+    console.log(backgroundString)
+    if (numSelected == 1) {
+      console.log("option 1");
+      document.body.style.background = backgroundString;
+    } else {
+      console.log("option 2");
+      document.body.style.backgroundImage = "linear-gradient(" + backgroundString + ")";
+    }
  }
